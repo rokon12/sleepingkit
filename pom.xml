@@ -1,0 +1,296 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>sleepingkit</groupId>
+    <artifactId>sleepingkit</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>sleepingkit-app</module>
+        <module>sleepingkit-ejb</module>
+        <module>sleepingkit-war</module>
+    </modules>
+    <name>sleepingkit Parent</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <slf4jVersion>1.6.4</slf4jVersion>
+        <glassfish.glassfishDirectory>/usr/local/glassfish/glassfish</glassfish.glassfishDirectory>
+        <glassfish.user>admin</glassfish.user>
+        <glassfish.adminPassword>therap</glassfish.adminPassword>
+        <glassfish.domain.name>domain</glassfish.domain.name>
+        <glassfish.domain.host>localhost</glassfish.domain.host>
+        <glassfish.domain.adminPort>4848</glassfish.domain.adminPort>
+    </properties>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>snapshot.ocean.net.au</id>
+            <name>Ocean Snapshot Repository</name>
+            <url>http://maven.ocean.net.au/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4jVersion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4jVersion}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.10</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian.junit</groupId>
+                <artifactId>arquillian-junit-container</artifactId>
+                <version>1.0.3.Final</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-web-api</artifactId>
+                <version>6.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>6.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>sleepingkit</groupId>
+                <artifactId>sleepingkit-ejb</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>ejb</type>
+            </dependency>
+
+            <dependency>
+                <groupId>sleepingkit</groupId>
+                <artifactId>sleepingkit-war</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>war</type>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.main.ejb</groupId>
+                <artifactId>javax.ejb</artifactId>
+                <version>3.1.2.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.faces</groupId>
+                <artifactId>javax.faces-api</artifactId>
+                <version>2.1</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.0-api</artifactId>
+                <version>1.0.0.Final</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>4.1.9.Final</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>4.1.9.Final</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>4.2.0.Final</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>3.1.0.CR2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.23</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openejb</groupId>
+                <artifactId>openejb-core</artifactId>
+                <version>4.5.1</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>sleepingkit</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.1.1</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>2.1</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+
+                <plugin>
+                    <groupId>com.oracle.weblogic</groupId>
+                    <artifactId>weblogic-maven-plugin</artifactId>
+                    <version>10.3.4</version>
+                    <configuration>
+                        <adminurl>http://localhost:7001</adminurl>
+                        <user>weblogic</user>
+                        <password>therap123</password>
+                        <upload>true</upload>
+                        <action>deploy</action>
+                        <remote>false</remote>
+                        <verbose>true</verbose>
+                        <source>${project.build.directory}/${project.build.finalName}.${project.packaging}</source>
+                        <name>${project.build.finalName}</name>
+                    </configuration>
+                    <!--
+                    <executions>
+                       <execution>
+                          <phase>install</phase>
+                            <goals>
+                              <goal>deploy</goal>
+                            </goals>
+                       </execution>
+                     </executions>
+                     -->
+                </plugin>
+
+                <!--<plugin>-->
+                <!--<groupId>org.glassfish.maven.plugin</groupId>-->
+                <!--<artifactId>maven-glassfish-plugin</artifactId>-->
+                <!--<version>2.1</version>-->
+
+                <!--<configuration>-->
+                <!--<terse>false</terse>-->
+                <!--<echo>true</echo>-->
+                <!--<debug>true</debug>-->
+                <!--<glassfishDirectory>${glassfish.glassfishDirectory}</glassfishDirectory>-->
+                <!--<user>${glassfish.user}</user>-->
+                <!--<adminPassword>${glassfish.adminPassword}</adminPassword>-->
+
+                <!--<domain>-->
+                <!--<name>${project.artifactId}</name>-->
+                <!--<adminPort>4848</adminPort>-->
+                <!--<httpPort>8080</httpPort>-->
+                <!--<httpsPort>8443</httpsPort>-->
+                <!--<iiopPort>3700</iiopPort>-->
+                <!--<jmsPort>7676</jmsPort>-->
+                <!--<reuse>false</reuse>-->
+
+                <!--&lt;!&ndash; <resourceDescriptor>path/to/resources.xml</resourceDescriptor> &ndash;&gt;-->
+                <!--<resources>-->
+
+                <!--<jdbcDataSource>-->
+                <!--<name>SomeDS</name>-->
+                <!--<type>connectionPoolDataSource</type>-->
+                <!--<poolName>mysql</poolName>-->
+                <!--<className>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</className>-->
+                <!--<description>mysql</description>-->
+                <!--<allowNonComponentCallers>false</allowNonComponentCallers>-->
+                <!--<validateConnections>true</validateConnections>-->
+                <!--<validationMethod>metaData</validationMethod>-->
+                <!--<properties>-->
+                <!--<property>-->
+                <!--<name>portNumber</name>-->
+                <!--<value>3306</value>-->
+                <!--</property>-->
+                <!--<property>-->
+                <!--<name>password</name>-->
+                <!--<value>root</value>-->
+                <!--</property>-->
+                <!--<property>-->
+                <!--<name>user</name>-->
+                <!--<value>root</value>-->
+                <!--</property>-->
+                <!--<property>-->
+                <!--<name>serverName</name>-->
+                <!--<value>localhost</value>-->
+                <!--</property>-->
+                <!--<property>-->
+                <!--<name>databaseName</name>-->
+                <!--<value>sleepingkit</value>-->
+                <!--</property>-->
+                <!--</properties>-->
+                <!--</jdbcDataSource>-->
+                <!--</resources>-->
+                <!--</domain>-->
+                <!--<components>-->
+                <!--<component>-->
+                <!--<name>${project.artifactId}</name>-->
+                <!--<artifact>-->
+                <!--/home/bazlur/Code/sleepingkit/sleepingkit-app/target/${project.build.finalName}.ear-->
+                <!--</artifact>-->
+                <!--</component>-->
+                <!--</components>-->
+                <!--</configuration>-->
+                <!--</plugin>-->
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC
+        "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN"
+        "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+
+    <jdbc-resource jndi-name="jdbc/sleepingkit" pool-name="mysqlConnectionPool"/>
+    <jdbc-connection-pool name="mysqlConnectionPool" res-type="javax.sql.ConnectionPoolDataSource"
+                          datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource">
+        <property name="databaseName" value="sleepingkit"/>
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
+        <property name="ServerName" value="localhost"/>
+        <property name="Url" value="jdbc:mysql://localhost:3306/sleep"/>
+        <property name="Port" value="3306"/>
+    </jdbc-connection-pool>
+
+    <!--<jdbc-resource pool-name="ArquillianEmbeddedDerbyPool"-->
+    <!--jndi-name="jdbc/arquillian"/>-->
+    <!--<jdbc-connection-pool name="ArquillianEmbeddedDerbyPool"-->
+    <!--res-type="javax.sql.DataSource"-->
+    <!--datasource-classname="org.apache.derby.jdbc.EmbeddedDataSource"-->
+    <!--is-isolation-level-guaranteed="false">-->
+    <!--<property name="databaseName" value="target/databases/derby"/>-->
+    <!--<property name="createDatabase" value="create"/>-->
+    <!--</jdbc-connection-pool>-->
+
+    <!--<jdbc-resource-->
+    <!--jndi-name="jdbc/sleepingkit"-->
+
+    <!--pool-name="java:app/myConnectionPool">-->
+    <!--<description/>-->
+    <!--</jdbc-resource>-->
+
+    <!--<jdbc-connection-pool name="java:app/myConnectionPool"-->
+    <!--res-type="javax.sql.ConnectionPoolDataSource"-->
+    <!--datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource">-->
+
+    <!--<property name="user" value="root"/>-->
+    <!--<property name="Port" value="3306"/>-->
+    <!--<property name="DatabaseName" value="sleepingkit"/>-->
+    <!--<property name="ServerName" value="localhost"/>-->
+    <!--<property name="Url" value="jdbc:mysql://localhost:3306/sleepingkit"/>-->
+    <!--<property name="URL" value="jdbc:mysql://localhost:3306/sleepingkit"/>-->
+    <!--<property name="Password" value="root"/>-->
+    <!--</jdbc-connection-pool>-->
+
+    <!--
+<jdbc-resource pool-name="ArquillianEmbeddedH2Pool"
+jndi-name="jdbc/arquillian"/>
+<jdbc-connection-pool name="ArquillianEmbeddedH2Pool"
+res-type="javax.sql.DataSource"
+datasource-classname="org.h2.jdbcx.JdbcDataSource">
+<property name="user" value="sa"/>
+<property name="password" value=""/>
+<property name="url" value="jdbc:h2:file:target/databases/h2/db"/>
+</jdbc-connection-pool>
+-->
+</resources>

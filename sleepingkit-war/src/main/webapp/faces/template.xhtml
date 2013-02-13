@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  Users: bazlur
+  Date: 2/11/13
+  Time: 12:29 PM
+-->
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Sleeping Kit: <ui:insert name="title">Page Title</ui:insert></title>
+    <h:outputStylesheet library="css" name="bootstrap.css"/>
+
+    <h:outputStylesheet>
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        .container-narrow {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .container-narrow>hr {
+            margin: 30px 0;
+        }
+
+        .jumbotron {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 72px;
+            line-height: 1;
+        }
+
+        .jumbotron .btn {
+            font-size: 21px;
+            padding: 14px 24px;
+        }
+
+        .marketing {
+            margin: 60px 0;
+        }
+
+        .marketing p+h4 {
+            margin-top: 28px;
+        }
+
+        .form-signin {
+            max-width: 400px;
+            padding: 30px 30px 30px;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 1px solid #e8e8e8;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+        }
+
+        .form-signin .form-signin-heading, .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+
+        .form-signin input[type="text"], .form-signin input[type="password"] {
+            font-size: 16px;
+            height: auto;
+            margin-bottom: 15px;
+            padding: 7px 9px;
+        }
+
+        /*.modal-body {*/
+        /*max-height: 550px;*/
+        /*width: 500px;*/
+        /*}*/
+    </h:outputStylesheet>
+</h:head>
+
+<h:body>
+    <div class="container-narrow">
+        <div class="masthead">
+            <ul class="nav nav-pills pull-right">
+                <li class="active"><a
+                        href="/">Home</a></li>
+            </ul>
+            <h3 class="muted">
+                Sleeping Kit
+            </h3>
+        </div>
+        <hr/>
+        <hr/>
+        <ui:insert name="content">Default value for Content</ui:insert>
+        <hr/>
+        <hr/>
+        <div class="footer">
+            <p align="center"> Copyright 1213,
+                Brought to you by <a href="http://codexplo.wordpress.com" target="_blank"> Bazlur Rahman</a>
+            </p>
+        </div>
+
+    </div>
+</h:body>
+
+</html>
